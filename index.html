@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <!-- bootstrap related files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+    </script>
+
+    <!-- jquery import -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- font awesome for the icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom styles -->
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDQxCaG-HKJ-MY-Yg3SEob8n5sJOaHJnRs",
+            authDomain: "favoriteplaces-1a358.firebaseapp.com",
+            databaseURL: "https://favoriteplaces-1a358.firebaseio.com",
+            projectId: "favoriteplaces-1a358",
+            storageBucket: "favoriteplaces-1a358.appspot.com",
+            messagingSenderId: "976576624453",
+            appId: "1:976576624453:web:21ac11a81f637e6210b02c",
+            measurementId: "G-1EGP0MMPN6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- initialize script -->
+    <script src="initialize.js"></script>
+
+    <!-- custom script -->
+    <script src="main.js"></script>
+
+</head>
+
+<body>
+    <div class="alert alert-success text-center" id="dashboard" role="alert">
+        <h1> Favorite Places</h1>
+    </div>
+
+    <div class="container">
+
+
+        <input class="btn btn-default  pull-right" placeholder="Search by name..." id="searchPlace"> </input>
+
+        <div id="operationStatus"></div>
+
+        <div class="placeForm">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="pname">Place Name</label>
+                    <input type="text" class="form-control" id="pname" placeholder="Place Name">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="countryName" placeholder="Country Name">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="cityName" placeholder="City Name">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="whatis">What is it?</label>
+                    <input type="text" class="form-control" id="whatIsIt" placeholder="What is it">
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <button class="btn btn-primary" id="addNewPlace">
+                        Add a new place 
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+                
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+          <tr>
+            <th scope="col">Place name</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+            <th scope="col">What is it?</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tableToDisplay">
+        </tbody>
+</table>
+ 
+
+        <div class=text-right>
+            <button class="btn btn-default" id="cancel">Cancel</button>
+            <button class="btn btn-primary" id="dynamicBtn"></button>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>
