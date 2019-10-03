@@ -6,7 +6,7 @@ var placesRef = db.collection("places");
 function init() {
 loadData();
 document.getElementById("addNewPlace").addEventListener("click",addNewPlace)
-document.getElementsByClassName("deletePlace").addEventListener("click", deletePlace)
+document.querySelectorAll(".deletePlace").addEventListener("click", function(){console.log("Woww")})
 
 }
 
@@ -67,5 +67,5 @@ function addNewPlace(){
 function deleteBtn() {
    //console.log(this.placeName) 
 var docuName =  place_name.value;
-db.collection("places").doc(docuName).delete()
+db.collection("places").doc(docuName).delete().then(console.log("you did it"))
 }
