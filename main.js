@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", init);
 
+var db = firebase.firestore();
+var placesRef = db.collection("places");
 
 function init() {
 loadData();
@@ -44,12 +46,12 @@ function addNewPlace(){
     if (place_name.value.length == 0 ){
         console.log("Please introduce the place name")
     } else{
-        var docuName = place_name.chartAt(0)+ ". " + country_name;
-        db.collection("favoritePlaces").doc(docuName).set({
-            placeName: place_name,
-            country: country_name,
-            city: city_name,
-            whatis: whatis
+        var docuName = place_name.value;
+        db.collection("places").doc(docuName).set({
+            placeName: place_name.value,
+            country: country_name.value,
+            city: city_name.value,
+            whatis: whatis.value
         }).then(function(docRef){
 
             console.log("succes")
